@@ -2225,4 +2225,31 @@ function Get-SqlScriptQueryOrganizationValueTestString
     }
 }
 
+<#
+    .SYNOPSIS
+        Creates a unique ID for the SqlScriptQuery resource.
+    .Notes
+        Required as of version SqlServerDsc 17.0.0.
+#>
+function Get-SqlScriptQueryId
+{   
+    [string]$queryId = New-Guid
+    
+    return $queryId
+}
+
+<#
+    .SYNOPSIS
+        Sets the encrypt option for the SqlScriptQuery resource.
+    .Notes
+        If the SqlServer PowerShell module is installed this option is required. SqlServerDsc
+        will load the SqlServer module over SQLPS if it is found.
+#>
+function Get-EncryptOption
+{
+    $encryptOption = 'Optional'
+    
+    return $encryptOption
+}
+
 #endregion Helper Functions

@@ -47,6 +47,8 @@ class SqlScriptQueryRuleConvert : SqlScriptQueryRule
         $this.SetTestScript($ruleType)
         $this.SetSetScript($ruleType, $fixText)
         $this.SetVariable($ruleType)
+        $this.SetQueryId($ruleType)
+        $this.SetEncrypt($ruleType)
         if ($null -ne $this.Variable)
         {
             $this.SetOrganizationValueTestString($ruleType)
@@ -138,6 +140,42 @@ class SqlScriptQueryRuleConvert : SqlScriptQueryRule
 
             # If a SQlScriptQueryRule has a value in the variable property then it requires an OrgValue
             $this.Set_OrganizationValueRequired($true)
+        }
+    }
+
+    <#
+        .SYNOPSIS
+            Creates a unique ID for the SqlScriptQuery resource.
+        .DESCRIPTION
+            Gets the id string to be used in the SqlScriptQuery resource
+        .PARAMETER RuleType
+            The type of rule to get the variable string for.
+    #>
+    [void] SetQueryId ([string] $RuleType)
+    {
+        $thisId = Get-SqlScriptQueryId 
+
+        if (-not $this.SetStatus($thisId))
+        {
+            $this.set_QueryId($thisId)
+        }
+    }
+
+    <#
+        .SYNOPSIS
+            Sets the encrypt option for the SqlScriptQuery resource.
+        .DESCRIPTION
+            Gets the encrypt string to be used in the SqlScriptQuery resource
+        .PARAMETER RuleType
+            The type of rule to get the variable string for.
+    #>
+    [void] SetEncrypt ([string] $RuleType)
+    {
+        $thisId = Get-EncryptOption
+
+        if (-not $this.SetStatus($thisId))
+        {
+            $this.set_Encrypt($thisId)
         }
     }
 

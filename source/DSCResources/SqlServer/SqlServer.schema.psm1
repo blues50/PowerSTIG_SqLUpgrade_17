@@ -97,7 +97,7 @@ configuration SqlServer
     $stig.LoadRules($OrgSettings, $Exception, $SkipRule, $SkipRuleType, $SkipRuleSeverity)
     ##### END DO NOT MODIFY #####
 
-    Import-DscResource -ModuleName SqlServerDsc -ModuleVersion 15.1.1
+    Import-DscResource -ModuleName SqlServerDsc -ModuleVersion 17.0.0
     . "$resourcePath\SqlServer.ScriptQuery.ps1"
     . "$resourcePath\SqlServer.SqlLogin.ps1"
     . "$resourcePath\SqlServer.SqlProtocol.ps1"
