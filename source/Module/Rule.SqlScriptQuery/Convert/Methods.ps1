@@ -2233,7 +2233,28 @@ function Get-SqlScriptQueryOrganizationValueTestString
 #>
 function Get-SqlScriptQueryId
 {   
-    [string]$queryId = New-Guid
+    [CmdletBinding()]
+    [OutputType([string])]
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyString()]
+        [string[]]
+        $CheckContent
+    )
+
+    #$duplicateQueries
+    #[string]$queryId = New-Guid
+
+    $collection = Get-AuditEvents -CheckContent $CheckContent
+    if ($collection)
+    {
+        $queryId = '1'
+    }
+        else
+        {
+            $queryId = New-Guid
+        }
     
     return $queryId
 }
