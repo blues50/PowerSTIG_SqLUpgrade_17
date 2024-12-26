@@ -89,7 +89,10 @@ configuration SqlServer
         [Parameter()]
         [ValidateSet('CAT_I', 'CAT_II', 'CAT_III')]
         [string[]]
-        $SkipRuleSeverity
+        $SkipRuleSeverity,
+
+        [Parameter(Mandatory = $true)]
+        [PSCredential]$SQLPermCredential
     )
 
     ##### BEGIN DO NOT MODIFY #####
@@ -103,6 +106,7 @@ configuration SqlServer
     . "$resourcePath\SqlServer.SqlProtocol.ps1"
     . "$resourcePath\SqlServer.SqlDatabase.ps1"
     . "$resourcePath\SqlServer.SQLConfiguration.ps1"
+    . "$resourcePath\SqlServer.SqlPermission.ps1" -SQLPermCredential $SQLPermCredential
 
     Import-DscResource -ModuleName SecurityPolicyDsc -ModuleVersion 2.10.0.0
     . "$resourcePath\Windows.SecurityOption.ps1"
