@@ -110,6 +110,7 @@ configuration SqlServer
 
     Import-DscResource -ModuleName SecurityPolicyDsc -ModuleVersion 2.10.0.0
     . "$resourcePath\Windows.SecurityOption.ps1"
+    . "$resourcePath\SqlServer.UserRightsAssignment.ps1"
 
     Import-DscResource -ModuleName AccessControlDsc -ModuleVersion 1.4.3
     . "$resourcePath\Windows.AccessControl.ps1"
