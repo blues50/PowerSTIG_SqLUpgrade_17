@@ -37,6 +37,10 @@ function Get-OptionName
         {
             $optionName = "user connections"
         }
+        {$PSItem -Match "use of CLR assemblies"}
+        {
+            $optionName = "clr enabled"
+        }
     }
 
     return $optionName

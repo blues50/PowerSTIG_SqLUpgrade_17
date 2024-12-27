@@ -46,6 +46,7 @@ class SqlServerConfigurationRuleConvert : SqlServerConfigurationRule
         $this.SetOptionName()
         $this.SetOptionValue()
         $this.SetDscResource()
+        $this.SetDuplicateRule()
     }
 
     #region Methods
@@ -96,7 +97,8 @@ class SqlServerConfigurationRuleConvert : SqlServerConfigurationRule
             $CheckContent -Match "EXEC SP_CONFIGURE 'remote data archive';" -or
             $CheckContent -Match "EXEC SP_CONFIGURE 'external scripts enabled';" -or
             $CheckContent -Match "EXEC SP_CONFIGURE 'replication xps';" -or
-            $CheckContent -Match "EXEC sys.sp_configure N'user connections'"
+            $CheckContent -Match "EXEC sys.sp_configure N'user connections'" -or
+            $CheckContent -Match "use of CLR assemblies"
         )
         {
             return $true
