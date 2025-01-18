@@ -171,7 +171,7 @@ class SqlScriptQueryRuleConvert : SqlScriptQueryRule
     #>
     [void] SetEncrypt ([string] $RuleType)
     {
-        $thisId = Get-EncryptOption
+        $thisId = Get-EncryptOption -CheckContent $this.SplitCheckContent
 
         if (-not $this.SetStatus($thisId))
         {

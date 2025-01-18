@@ -2243,9 +2243,6 @@ function Get-SqlScriptQueryId
         $CheckContent
     )
 
-    #$duplicateQueries
-    #[string]$queryId = New-Guid
-
     $collection = Get-AuditEvents -CheckContent $CheckContent
     if ($collection)
     {
@@ -2268,6 +2265,16 @@ function Get-SqlScriptQueryId
 #>
 function Get-EncryptOption
 {
+    [CmdletBinding()]
+    [OutputType([string])]
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyString()]
+        [string[]]
+        $CheckContent
+    )
+    
     $encryptOption = 'Optional'
     
     return $encryptOption
