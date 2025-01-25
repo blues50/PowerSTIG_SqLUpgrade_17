@@ -1,13 +1,6 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
-[CmdletBinding()]
-param
-(
-    [Parameter(Mandatory = $true)]
-    [PSCredential]$SQLPermCredential
-)
-
 $rules = $stig.RuleList | Select-Rule -Type SqlPermissionRule
 
 # Sets variables for Default and Named Instances.

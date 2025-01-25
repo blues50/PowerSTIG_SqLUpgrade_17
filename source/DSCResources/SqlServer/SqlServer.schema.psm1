@@ -106,7 +106,7 @@ configuration SqlServer
     . "$resourcePath\SqlServer.SqlProtocol.ps1"
     . "$resourcePath\SqlServer.SqlDatabase.ps1"
     . "$resourcePath\SqlServer.SQLConfiguration.ps1"
-    . "$resourcePath\SqlServer.SqlPermission.ps1" -SQLPermCredential $SQLPermCredential
+    . "$resourcePath\SqlServer.SqlPermission.ps1"
 
     Import-DscResource -ModuleName SecurityPolicyDsc -ModuleVersion 2.10.0.0
     . "$resourcePath\Windows.SecurityOption.ps1"

@@ -45,21 +45,6 @@ function Set-Permission
 
     # This is the setting for a non FCI or AlwaysOn configuration
     # Other configurations must use an exception to meet STIG requirements
-    <#$permissionSetting = "@(ServerPermission
-                        {
-                            State      = 'Grant'
-                            Permission = @('CONNECTSQL', 'VIEWANYDATABASE')
-                        }
-                            ServerPermission
-                        {
-                            State      = 'GrantWithGrant'
-                            Permission = @()
-                        }
-                        ServerPermission
-                        {
-                            State      = 'Deny'
-                            Permission = @()
-                        })"#>
     $permissionSetting = ('CONNECTSQL,VIEWANYDATABASE')
 
     return $permissionSetting
